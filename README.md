@@ -1,4 +1,4 @@
-<h2 align="center">Digital Dhronometer in VHDL</h2>
+<h2 align="center">Digital Chronometer in VHDL</h2>
 
 The aim of this project is to describe and implement a digital chronometer in the FPGA of the Basys 3 card. The main characteristics of this project are described below:
 
@@ -57,6 +57,38 @@ end record;
 signal lap_rec : lap_rec_type;
 ````
 
+For the display of time on the displays, another process will be used that will determine the values of the count to be displayed on each display depending on whether you want to display in MM:SS, SS:CC or you want to display an LAP or LAST LAP stored.
+
+````VHDL
+process(ms_sc, save_lap) begin 
+case ms_sc is
+  when ’0’ =>
+    if save_lap=’1’ or last_lap =’1’ then
+      disp0 <= lap_rec.c; 
+      disp1 <= lap_rec.dc; 
+      disp2 <= lap_rec.s; 
+      disp3 <= lap_rec.ds;
+    else
+      disp0 <= c0;
+      disp1 <= c1; 
+      disp2 <= s0; 
+      disp3 <= s1;
+    end if;
+  when others =>
+    if save_lap=’1’ or last_lap =’1’ then 
+      disp0 <= lap_rec.s;
+      disp1 <= lap_rec.ds;
+      disp2 <= lap_rec.m;
+      disp3 <= lap_rec.dm; 
+    else
+      disp0 <= s0; 
+      disp1 <= s1; 
+      disp2 <= m0; 
+      disp3 <= m1;
+    end if; 
+end case;
+end process;
+````
 
 
 
