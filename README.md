@@ -90,5 +90,8 @@ end case;
 end process;
 ````
 
+## Copyright and license
+
+Code and documentation copyright 2020–2030 of Luca Di Iorio. Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).
 
 
