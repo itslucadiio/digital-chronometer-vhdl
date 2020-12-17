@@ -14,7 +14,7 @@ The aim of this project is to describe and implement a digital chronometer in th
 
 ## Main Project
 
-This is the the top-level entity of the project. In other words, it is the central project of the digital chronometer. The entity will have the following descriptio of its inputs and outputs:
+This is the the top-level entity of the project. In other words, it is the central project of the digital chronometer. The entity will have the following description of its inputs and outputs:
 
 ````VHDL
 entity pract5 is 
