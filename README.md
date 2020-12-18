@@ -123,7 +123,7 @@ end if;
 end process; 
 sortida <= temp;
 ````
-
+You can see the full code of this component in the file: biestable.vhdl
 
 ## Copyright and license
 
