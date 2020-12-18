@@ -11,6 +11,7 @@ The aim of this project is to describe and implement a digital chronometer in th
 ## Table of contents
 
 - [Main Project](#Main-project)
+- [Flip Flop](#Flip-flop)
 
 ## Main Project
 
@@ -89,6 +90,40 @@ case ms_sc is
 end case;
 end process;
 ````
+
+## Flip flip
+
+Because the selection entries are made through the buttons on the board, and some of them are dual-functional, we need to use a flipflop of type T - toggle - that stores the value even when the button is not pressed. 
+
+A problem with the push buttons, however, is the bounces that can occur because we are not able to push them for the necessary time. To avoid possible problems that would cause the double action buttons, such as the START / STOP button, we have to build a bounce circuit.
+
+For this reason, this component uses two processes: a flip-flop that stores the value of the button once pressed, and a process that prevents unwanted activations.
+
+
+````VHDL
+bounce: process(clk) begin 
+if rising_edge ( clk ) then
+  if reset=’1’ then 
+    q0 <= ’0’;
+    q1 <= ’1’;
+  else
+    q1 <= q0; 
+  end if;
+end if;
+end process;
+q_out <= q0 and not q1;
+
+flipflop: process(clk) begin 
+if rising_edge ( clk ) then
+  if reset=’1’ then temp <= ’0’;
+  elsif q_out=’1’ then temp <= NOT temp;
+  else temp <= temp; 
+  end if;
+end if;
+end process; 
+sortida <= temp;
+````
+
 
 ## Copyright and license
 
