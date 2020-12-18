@@ -91,7 +91,7 @@ end case;
 end process;
 ````
 
-You can see the full code in the file: pract5.vhdl The code for all the componets used and other resourser, such as the coinstains file, are also included.
+You can see the full code in the file: pract5.vhdl The code for all the componets used and other resourses, such as the coinstains file, are also included.
 
 ## Flip flop
 
