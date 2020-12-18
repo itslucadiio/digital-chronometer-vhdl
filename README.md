@@ -91,6 +91,8 @@ end case;
 end process;
 ````
 
+You can see the full code in the file: pract5.vhdl The code for all the componets used and other resourser, such as the coinstains file, are also included.
+
 ## Flip flop
 
 Because the selection entries are made through the buttons on the board, and some of them are dual-functional, we need to use a flipflop of type T - toggle - that stores the value even when the button is not pressed. 
